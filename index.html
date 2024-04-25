@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Preference Survey</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f28d; /* Choose your desired background color */
+    }
+    form {
+        margin: 0 auto;
+        width: 300px;
+        background-color: #f2f28d; /* Form background color */
+        padding: 20px; /* Add some padding for better readability */
+        border-radius: 10px; /* Add rounded corners to the form */
+    }
+    input[type="text"], input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #eded5f
+        color: Soft yellow;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #efef76;
+    }
+</style>
+</head>
+<body>
+<h2>Color Preference Survey</h2>
+<form action="#" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    <label for="age">Age:</label><br>
+    <input type="text" id="age" name="age" required><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    <label>Choose your favorite color:</label><br>
+    <input type="radio" id="White" name="color" value="White" required>
+    <label for="White">White</label><br>
+    <input type="radio" id="Black" name="color" value="Black">
+    <label for="Black">Black</label><br>
+    <input type="radio" id="Red" name="color" value="Red">
+    <label for="Red">Red</label><br><br>
+    <input type="submit" value="Submit">
+</form>
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var name = document.getElementById('name').value;
+        var age = document.getElementById('age').value;
+        var email = document.getElementById('email').value;
+        var color = document.querySelector('input[name="color"]:checked').value;
+        var message = "Thank you for participating, " + name + "! Your age is " + age + ", your email is " + email + ", and your favorite color is " + color + ".";
+        document.body.innerHTML = "<h2>" + message + "</h2>";
+    });
+</script>
+</body>
+</html>
